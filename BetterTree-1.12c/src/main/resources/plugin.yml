@@ -1,0 +1,15 @@
+name: BetterTree
+version: 1.12
+main: fr.arbres.BetterTreePlugin
+api-version: "26.3"
+commands:
+  arbres:
+    description: Better Tree - arbres stylés, rochers, champignons, ruines (admin)
+    aliases: [bettertree, bt]
+    usage: /arbres convert [rayon] | /arbres reload | /arbres pack
+    permission: arbres.admin
+    permission-message: "§cCette commande est réservée aux opérateurs."
+permissions:
+  arbres.admin:
+    description: Utiliser /arbres
+    default: op

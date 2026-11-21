@@ -1,0 +1,127 @@
+# Mondes concernés (liste de noms). Vide = tous les mondes (overworld, Nether et End).
+worlds: []
+
+# Remplace automatiquement les arbres des NOUVEAUX chunks générés par les arbres stylés.
+replace-new-chunks: true
+
+# Les pousses (et la poudre d'os) font aussi pousser les arbres stylés.
+replace-saplings: true
+
+# Taille des arbres : 1.0 = taille normale du plugin, 1.3 = plus grands, 0.8 = plus petits.
+scale: 1.0
+
+rocks:
+  # Rochers avec minerais (charbon, fer, or) dans les plaines et les forêts.
+  enabled: true
+  # Probabilité qu'un chunk nouvellement généré ait un rocher (0.10 = environ 1 chunk sur 10).
+  chance: 0.10
+
+# Rochers de grès dans le désert (probabilité par chunk).
+sandstone-rocks:
+  enabled: true
+  chance: 0.12
+
+# Ruines : murs en partie écroulés, colonnes brisées, dallage. Un coffre peut être enterré dessous :
+# une dalle sculptée au sol marque l'endroit, il faut creuser (2 blocs) pour le trouver.
+ruins:
+  desert:                # ruines de grès
+    enabled: true
+    chance: 0.02         # par chunk de désert (0.02 = environ 1 chunk sur 50)
+    chest-chance: 0.6    # probabilité qu'une ruine cache un coffre
+  jungle:                # ruines de pierre moussue avec lianes
+    enabled: true
+    chance: 0.02
+    chest-chance: 0.5
+
+# Arbres : un arbre normal (vanilla) qui ne peut pas être remplacé par un arbre stylé (pas assez de place, bord de zone...)
+# est SUPPRIMÉ au lieu d'être laissé. Mets false pour le laisser tel quel. (Les palétuviers de mangrove ne sont pas touchés.)
+trees:
+  remove-unfit: true
+
+# Le jour, aucun monstre ne naît naturellement sous un feuillage (arbres, buissons).
+no-day-spawn-under-leaves:
+  enabled: true
+  include-passive: false   # true = aussi les animaux (vaches, moutons...)
+
+# Le jour, aucun monstre ne naît naturellement dans les biomes de forêt (forêt, bouleaux, forêt sombre, forêt fleurie...).
+# (include-passive de la section ci-dessus s'applique aussi ici.)
+no-day-spawn-in-forests:
+  enabled: true
+
+# Forêt de bois pâle (pale_garden) : SEULS les creakings peuvent naître naturellement (jour et nuit, monstres et animaux).
+pale-garden-only-creakings:
+  enabled: true
+
+# Nettoyage autour des arbres : feuilles sans tronc (qui se cassent toutes seules), lianes / mousses dans le vide,
+# neige en l'air, troncs flottants. Fonctionne aussi avec /arbres convert sur les chunks existants.
+cleanup:
+  enabled: true
+  orphan-logs: true
+
+# Champignons géants stylés de l'île champignon (+ pousses à la poudre d'os).
+# Nether : nether-trees remplace les fungus par de gros arbres (un arbre qui touche le bord de la zone traitée est laissé tel quel),
+# et on ajoute des lianes, shroomlights et gouttes de verrues.
+mushrooms:
+  enabled: true
+  nether-trees: true
+
+# Grands pics de glace dans le biome des pics de glace.
+ice-spikes:
+  enabled: true
+  chance: 0.85
+  remove-vanilla: true   # supprime les pics de glace normaux : il ne reste que la version améliorée
+
+# Pics de pierre moussus au bord de l'eau (biomes dont le nom contient un des mots de la liste).
+stone-spikes:
+  enabled: true
+  chance: 0.4
+  biomes: [stony_shore, stony_peaks]
+
+# L'End : tours d'obsidienne embellies sur l'île centrale (plus d'arbres d'os, aucun changement de biome).
+end:
+  towers: true
+
+# Cœurs de creaking : chance qu'un arbre pâle reconverti en reçoive un (il en garde toujours un s'il en avait).
+pale:
+  heart-chance: 0.45
+
+# Forêt tachetée (dappled forest) : feuilles mortes, buissons rouges, terre stérile, peupliers tombés.
+dappled-forest:
+  enabled: true
+  chance: 0.9
+
+# Buissons de jungle : touffes de feuilles sur une souche, avec fougères et lianes autour.
+jungle-bushes:
+  enabled: true
+  chance: 0.9            # probabilité qu'un chunk de jungle reçoive des buissons
+
+# (désactivé par défaut) Grottes des biomes froids (neigeux, gelés, bosquet, pics...) : stalactites de glace au plafond et petites pointes au sol.
+cave-ice:
+  enabled: false
+  density: 0.07          # probabilité par colonne de plafond (0.07 = quelques stalactites par grotte, 0.15 = beaucoup)
+  floor-spikes: true     # petites pointes de glace sur le sol des grottes
+
+oasis:
+  # Petites oasis (étang, palmiers) dans les déserts et les mesas, parfois avec un campement et un coffre.
+  enabled: true
+  # Probabilité qu'un chunk de désert ou de mesa ait une oasis (0.015 = environ 1 chunk sur 65).
+  chance: 0.015
+  # Probabilité qu'une oasis ait un campement avec un coffre de ressources simples.
+  camp-chance: 0.4
+
+# Pack de textures (déjà intégré dans le plugin, rien à télécharger).
+# Le plugin l'héberge lui-même et l'envoie aux joueurs quand ils se connectent.
+resource-pack:
+  host:
+    enabled: true
+    # Port TCP utilisé pour distribuer le pack. Il doit être ouvert sur ton serveur
+    # (comme le port de Minecraft, mais celui-ci en plus).
+    port: 8123
+    # Adresse (IP ou nom de domaine) que tes joueurs utilisent pour se connecter au serveur,
+    # SANS le port. Exemple : play.monserveur.fr ou 123.45.67.89
+    address: ""
+  # Facultatif : adresse d'un pack hébergé ailleurs. Si elle est remplie, elle remplace l'hébergement intégré.
+  url: ""
+  sha1: ""
+  # true = les joueurs doivent accepter le pack pour jouer
+  force: false
